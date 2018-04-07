@@ -39,18 +39,50 @@ $("#add-train").on("click", function(event) {
 database.ref().on("child_added", function(snapshot) {
 
     //check to make sure things are coming out of firebase
-    console.log(snapshot.val());
-    console.log(snapshot.val().trainName);
-    console.log(snapshot.val().cityName);
-    console.log(snapshot.val().trainTime);
-    console.log(snapshot.val().howOften);
+    // console.log(snapshot.val());
+    // console.log(snapshot.val().trainName);
+    // console.log(snapshot.val().cityName);
+    // console.log(snapshot.val().trainTime);
+    // console.log(snapshot.val().howOften);
 
     //change the HTML to reflect the updates
-    $("#added-name").text(snapshot.val().trainName);
-    $("#added-city").text(snapshot.val().cityName);
-    $("#added-time").text(snapshot.val().trainTime);
-    $("#added-frequency").text(snapshot.val().howOften);
-})
+    // $("#added-name").text(snapshot.val().trainName);
+    // $("#added-city").text(snapshot.val().cityName);
+    // $("#added-time").text(snapshot.val().trainTime);
+    // $("#added-frequency").text(snapshot.val().howOften);
+
+    var sv = snapshot.val();
+
+    //create new row and new cell once data is entered for train name
+    console.log(sv.trainName);
+    var createRow = $("<tr></tr>");
+    var createCell = $("<td></td>").append(sv.trainName);
+    createRow.append(createCell);
+
+    //create new cell once data is entered for destination city
+    console.log(sv.cityName);
+    createCell = $("<td></td>").append(sv.cityName);
+    createRow.append(createCell);
+
+    //create new cell once data is entered for train time
+    console.log(sv.trainTime);
+    createCell = $("<td></td>").append(sv.trainTime);
+    createRow.append(createCell);
+
+    //create new cell once data is entered for frequency
+    console.log(sv.howOften);
+    createCell = $("<td></td>").append(sv.howOften);
+    createRow.append(createCell);
+
+    $("#train-table").append(createRow);
+
+
+//handles errors
+}, function(errorObject) {
+        console.log("Errors handled: " + errorObject.code);
+      });
+
+
 
 //get the info back from firebase & display it on the page
 
