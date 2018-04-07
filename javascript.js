@@ -78,23 +78,23 @@ database.ref().on("child_added", function(snapshot) {
 
     //time apart(remainder)
     var tRemainder = diffTime % tFrequency;
-    console.log(tRemainder);
 
-    //minute until train
-    var tMinutesTillTrain = tFrequency - tRemainder;
-    console.log("MINUTES TILL TRAIN: " + tMinutesTillTrain);
-
-    //next train
+//===========================calculate next arrival==========================  
+    
     var nextTrain = moment().add(tMinutesTillTrain, "minutes");
     console.log("ARRIVAL TIME: " + moment(nextTrain).format("hh:mm"));
+    createCell = $("<td></td>").append(moment(nextTrain).format("hh:mm"));
 
     createCell = $("<td></td>").append(sv.trainTime);
     createRow.append(createCell);
 
-//===========================calculate minutes away==========================  
+    //===========================calculate minutes away==========================  
 
-    
-
+    var tMinutesTillTrain = tFrequency - tRemainder;
+    console.log("MINUTES TILL TRAIN: " + tMinutesTillTrain);
+    createCell = $("<td></td>").append(tMinutesTillTrain);
+    createRow.append(createCell);
+   
     //add newly formed row to the bottom of the table
     $("#train-table").append(createRow);
 
@@ -102,8 +102,3 @@ database.ref().on("child_added", function(snapshot) {
 }, function(errorObject) {
         console.log("Errors handled: " + errorObject.code);
       });
-
-
-
-
-//time functionality
