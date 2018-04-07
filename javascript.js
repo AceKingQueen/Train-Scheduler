@@ -84,8 +84,6 @@ database.ref().on("child_added", function(snapshot) {
     var nextTrain = moment().add(tMinutesTillTrain, "minutes");
     console.log("ARRIVAL TIME: " + moment(nextTrain).format("hh:mm"));
     createCell = $("<td></td>").append(moment(nextTrain).format("hh:mm"));
-
-    createCell = $("<td></td>").append(sv.trainTime);
     createRow.append(createCell);
 
     //===========================calculate minutes away==========================  
