@@ -52,12 +52,7 @@
                 <td>8:19</td>
                 <td>98</td>
               </tr>
-              <!-- <tr>
-                <td scope="row" id="added-name"></td>
-                <td id="added-city"></td>
-                <td id="added-time"></td>
-                <td id="added-frequency"></td>
-              </tr> -->
+              
             </tbody>
           </table>      
 
@@ -74,17 +69,17 @@
                 <label for="destination-input">Destination</label>
                 <input type="text" class="form-control" id="city-name" placeholder="e.g. Durham, England">
             </div>
+
+            <div class="form-group">
+                <label for="frequency-input">Frequency</label>
+                <input type="number" class="form-control" id="how-often" placeholder="(in minutes)">
+            </div>
             
             <div class="form-group">
                 <label for="train-time-input">First Train Time</label>
                 <input type="number" class="form-control" id="train-time" placeholder="HH:MM Military Time">
             </div>
             
-            <div class="form-group">
-                <label for="frequency-input">Frequency</label>
-                <input type="number" class="form-control" id="how-often" placeholder="(in minutes)">
-            </div>
-        
             <button type="submit" class="btn btn-primary" id="add-train">Submit</button>
                         
         </form>
@@ -98,6 +93,7 @@
 </body>
 <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.0/moment.js"></script>
 <script src="javascript.js"></script>
 
 
