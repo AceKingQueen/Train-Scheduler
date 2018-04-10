@@ -1,6 +1,21 @@
 .jumbotron-fluid {
+    background-color: white;
     text-align: center;
-    /* background-image: url("https://www.tripsavvy.com/new-york-city-subways-and-buses-1612185") */
+}
+
+img {
+    width: 100%;  
+    position: relative;
+}
+
+h1 {
+    position: absolute;
+    top: 0;
+    font-family: 'Monoton', cursive;
+}
+
+.lead {
+    margin-top: 5%;
 }
 
 form {
@@ -8,5 +23,11 @@ form {
 }
 
 label {
-    font-weight: bold;
+    /* font-weight: bold; */
+    font-family: 'Monoton', cursive;
+
+}
+
+.form-group, button {
+    margin: 3%;
 }
