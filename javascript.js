@@ -55,7 +55,7 @@ database.ref().on("child_added", function(snapshot) {
     createRow.append(createCell);
    
 //===========================calculate next arrival==========================    
-    
+
     //create new cell once data is entered for frequency
     var tFrequency = sv.howOften;
     createCell = $("<td></td>").append(sv.howOften);
@@ -66,11 +66,11 @@ database.ref().on("child_added", function(snapshot) {
     
     //first time pushed back one year to make sure it comes before current time to avoid confusion
     var firstTimeConverted = moment(firstTime, "HH:mm").subtract(1, "years");
-    console.log(firstTimeConverted);
+    // console.log(firstTimeConverted);
 
     //current time
     var currentTime = moment();
-    console.log("CURRENT TIME: " + moment(currentTime).format("hh:mm"));
+    // console.log("CURRENT TIME: " + moment(currentTime).format("hh:mm"));
 
     //difference between the times
     var diffTime = moment().diff(moment(firstTimeConverted), "minutes");
@@ -82,14 +82,16 @@ database.ref().on("child_added", function(snapshot) {
 //===========================calculate next arrival==========================  
     
     var nextTrain = moment().add(tMinutesTillTrain, "minutes");
-    console.log("ARRIVAL TIME: " + moment(nextTrain).format("hh:mm"));
+    // console.log("ARRIVAL TIME: " + moment(nextTrain).format("hh:mm"));
+
     createCell = $("<td></td>").append(moment(nextTrain).format("hh:mm"));
     createRow.append(createCell);
 
-    //===========================calculate minutes away==========================  
+    //========================calculate minutes away==========================  
 
     var tMinutesTillTrain = tFrequency - tRemainder;
-    console.log("MINUTES TILL TRAIN: " + tMinutesTillTrain);
+    // console.log("MINUTES TILL TRAIN: " + tMinutesTillTrain);
+
     createCell = $("<td></td>").append(tMinutesTillTrain);
     createRow.append(createCell);
    
@@ -100,3 +102,8 @@ database.ref().on("child_added", function(snapshot) {
 }, function(errorObject) {
         console.log("Errors handled: " + errorObject.code);
       });
+
+      
+
+    //========================display the current time==========================  
+    $("#current-time").text(moment().format("hh:mm"));  

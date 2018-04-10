@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
 
 
@@ -10,51 +12,55 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Train Scheduler</title>
 </head>
+
 <body>
     <div class="container">
-        <div class="jumbotron jumbotron-fluid"><img src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/19f34a14242279.562801acef2b5.jpg" />
+        <div class="jumbotron jumbotron-fluid">
+            <img src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/19f34a14242279.562801acef2b5.jpg" />
             <div class="container">
                 <h1 class="display-4">Subway Schedule</h1>
-                <p class="lead">Type in a train to get your stats.</p>
-                </div>
-        </div><!--jumobtron-->  
-                     
+                <p class="lead">Current Time:</p>
+                <div id="current-time"></div>
+            </div>
+        </div>
+        <!--jumobtron-->
+
         <!-- Wells for displaying all trains -->
         <table class="table table-hover table-dark" id="train-table">
             <thead>
-              <tr>
-                <th scope="col">Train Name</th>
-                <th scope="col">Destination</th>
-                <th scope="col">Frequency (min)</th>
-                <th scope="col">Next Arrival</th>
-                <th scope="col">Minutes Away</th>
-              </tr>
+                <tr>
+                    <th scope="col">Train Name</th>
+                    <th scope="col">Destination</th>
+                    <th scope="col">Frequency (min)</th>
+                    <th scope="col">Next Arrival</th>
+                    <th scope="col">Minutes Away</th>
+                </tr>
             </thead>
             <tbody>
-              <tr>
-                <td scope="row">The Silver Bullet</td>
-                <td>London</td>
-                <td>30</td>
-                <td>3:15</td>
-                <td>7</td>
-              </tr>
-              <tr>
-                <td scope="row">Speed Racher</td>
-                <td>Bermuda</td>
-                <td>55</td>
-                <td>4:17</td>
-                <td>145</td>
-              </tr>
-              <tr>
-                <td scope="row">Better than a Cable Car</td>
-                <td>Cape Town</td>
-                <td>35</td>
-                <td>8:19</td>
-                <td>98</td>
-              </tr>
-              
+                <tr>
+                    <td scope="row">The Silver Bullet</td>
+                    <td>London</td>
+                    <td>30</td>
+                    <td>3:15</td>
+                    <td>7</td>
+                </tr>
+                <tr>
+                    <td scope="row">Speed Racher</td>
+                    <td>Bermuda</td>
+                    <td>55</td>
+                    <td>4:17</td>
+                    <td>145</td>
+                </tr>
+                <tr>
+                    <td scope="row">Better than a Cable Car</td>
+                    <td>Cape Town</td>
+                    <td>35</td>
+                    <td>8:19</td>
+                    <td>98</td>
+                </tr>
+
             </tbody>
-          </table>      
+        </table>
 
 
 
@@ -63,7 +69,7 @@
                 <label for="train-input">Train Name</label>
                 <input type="text" class="form-control" id="train-name" placeholder="e.g. The Bull City Express">
             </div>
-            
+
 
             <div class="form-group">
                 <label for="destination-input">Destination</label>
@@ -74,22 +80,23 @@
                 <label for="frequency-input">Frequency</label>
                 <input type="number" class="form-control" id="how-often" placeholder="(in minutes)">
             </div>
-            
+
             <div class="form-group">
                 <label for="train-time-input">First Train Time</label>
                 <input type="text" class="form-control" id="train-time" placeholder="HH:MM Military Time">
             </div>
-            
+
             <button type="submit" class="btn btn-primary" id="add-train">Submit</button>
-                        
+
         </form>
-            
-       
-        
 
 
 
-    </div><!--container-->
+
+
+
+    </div>
+    <!--container-->
 </body>
 <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
