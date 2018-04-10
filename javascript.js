@@ -80,7 +80,10 @@ database.ref().on("child_added", function(snapshot) {
     var tRemainder = diffTime % tFrequency;
 
 //===========================calculate next arrival==========================  
-    
+    var tMinutesTillTrain = tFrequency - tRemainder;
+    console.log("MINUTES TILL TRAIN: " + tMinutesTillTrain);
+
+
     var nextTrain = moment().add(tMinutesTillTrain, "minutes");
     // console.log("ARRIVAL TIME: " + moment(nextTrain).format("hh:mm"));
 
@@ -89,9 +92,7 @@ database.ref().on("child_added", function(snapshot) {
 
     //========================calculate minutes away==========================  
 
-    var tMinutesTillTrain = tFrequency - tRemainder;
-    // console.log("MINUTES TILL TRAIN: " + tMinutesTillTrain);
-
+    
     createCell = $("<td></td>").append(tMinutesTillTrain);
     createRow.append(createCell);
    
@@ -103,7 +104,6 @@ database.ref().on("child_added", function(snapshot) {
         console.log("Errors handled: " + errorObject.code);
       });
 
-      
 
     //========================display the current time==========================  
     $("#current-time").text(moment().format("kk:mm"));  
