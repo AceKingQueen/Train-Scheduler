@@ -1,6 +1,5 @@
 .jumbotron-fluid {
     background-color: white;
-    text-align: center;
 }
 
 img {
@@ -12,19 +11,24 @@ h1 {
     position: absolute;
     top: 0;
     font-family: 'Monoton', cursive;
+    text-align: center;    
 }
 
 .lead {
     margin-top: 5%;
+    font-family: 'Monoton', cursive;
+    font-size: 48px;
+
 }
 
 form {
     border: black 2px solid;
+    background-color: slategray;
 }
 
 label {
-    /* font-weight: bold; */
     font-family: 'Monoton', cursive;
+    font-size: 20px;
 
 }
 

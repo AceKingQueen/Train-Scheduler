@@ -106,4 +106,4 @@ database.ref().on("child_added", function(snapshot) {
       
 
     //========================display the current time==========================  
-    $("#current-time").text(moment().format("hh:mm"));  
+    $("#current-time").text(moment().format("kk:mm"));  
