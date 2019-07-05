@@ -36,6 +36,13 @@ $("#add-train").on("click", function(event) {
 
 });
 
+//clear data from form
+$("#form").trigger("reset");
+
+//========================display the current time==========================  
+$("#current-time").text(moment().format("kk:mm"));  
+
+
 //=====get the info back from firebase & display it on the page========
 
 
@@ -63,6 +70,7 @@ database.ref().on("child_added", function(snapshot) {
 
     //variable to store first train time
     var firstTime = sv.trainTime;
+    console.log(firstTime);
     
     //first time pushed back one year to make sure it comes before current time to avoid confusion
     var firstTimeConverted = moment(firstTime, "HH:mm").subtract(1, "years");
@@ -105,5 +113,4 @@ database.ref().on("child_added", function(snapshot) {
       });
 
 
-    //========================display the current time==========================  
-    $("#current-time").text(moment().format("kk:mm"));  
+
